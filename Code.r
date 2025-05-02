@@ -11,11 +11,7 @@ inputFiles <- getTutorialData("Hematopoiesis")
  
 addArchRGenome("hg38")
  
-#setwd("/home/leaj00001/Desktop/single_cell")
- 
-#inputFiles1 <- c("/home/leaj00001/Desktop/single_cell/scbi_p2/scbi_p2/hft_ctx_w21_dc1r3_r1_atac_fragments.tsv.gz",
-#"/home/leaj00001/Desktop/single_cell/scbi_p2/scbi_p2/hft_ctx_w21_dc2r2_r1_atac_fragments.tsv.gz",
-#"/home/leaj00001/Desktop/single_cell/scbi_p2/scbi_p2/hft_ctx_w21_dc2r2_r2_atac_fragments.tsv.gz")
+
  
 names(inputFiles1) <-c("w21_dc1r3_r1","w21_dc2r2_r1","w21_dc2r2_r2")
  
@@ -71,7 +67,7 @@ quality_plot <- ggPoint(
 quality_plot
 
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/quality_plot.png", 
+  filename = "path.../quality_plot.png", 
   plot = quality_plot,           # The plot object
   width = 10,              # Width in inches
   height = 8,              # Height in inches
@@ -102,7 +98,7 @@ Plot_1 <- plotGroups(
     name = "log10(nFrags)",
     plotAs = "ridges"
    )
-png("/home/leaj00001/Desktop/single_cell/plot1.png", 
+png("path..../plot1.png", 
     width = 1024,    # Set width (in inches)
     height = 800,    # Set height (in inches)
     res = 300)
@@ -120,7 +116,7 @@ plot_2 <- plotGroups(
     addBoxPlot = TRUE
    )
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/plot2.png", 
+  filename = "path.../plot2.png", 
   plot = plot_2,           # The plot object
   width = 10,              # Width in inches
   height = 8,              # Height in inches
@@ -131,7 +127,7 @@ ggsave(
 # plotting Fragment Size Distribution and TSS Enrichment
 Fragemnt_plot <- plotFragmentSizes(ArchRProj = project2)
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/plot3.png", 
+  filename = "path.../plot3.png", 
   plot = Fragemnt_plot,           # The plot object
   width = 10,              # Width in inches
   height = 8,              # Height in inches
@@ -140,7 +136,7 @@ ggsave(
 
 TSS_plot <- plotTSSEnrichment(ArchRProj = project2)
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/plot4.png", 
+  filename = "path.../plot4.png", 
   plot = TSS_plot,           # The plot object
   width = 10,              # Width in inches
   height = 8,              # Height in inches
@@ -187,7 +183,7 @@ TSS_plot_Umap <- plotEmbedding(ArchRProj = project2, colorBy = "cellColData", na
 nFrag_plot_Umap <- plotEmbedding(ArchRProj = project2, colorBy = "cellColData", name = "nFrags", embedding = "UMAP")
 
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/nFrag_plot_Umap.png", 
+  filename = "path.../nFrag_plot_Umap.png", 
   plot = nFrag_plot_Umap,           # The plot object
   width = 10,              # Width in inches
   height = 8,              # Height in inches
@@ -217,7 +213,7 @@ TSS_plot_UmapAF <- plotEmbedding(ArchRProj = project2, colorBy = "cellColData", 
 nFrag_plot_UmapAF <- plotEmbedding(ArchRProj = project2, colorBy = "cellColData", name = "nFrags", embedding = "UMAP")
 
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/sample_plot_UmapAF.png", 
+  filename = "path.../sample_plot_UmapAF.png", 
   plot = sample_plot_UmapAF,           # The plot object
   width = 10,              # Width in inches
   height = 8,              # Height in inches
@@ -239,7 +235,7 @@ table(project2$Clusters)
 #plot UMAP clustring 
 clustring_Umap <- plotEmbedding(ArchRProj = project2, colorBy = "cellColData", name = "Clusters", embedding = "UMAP")
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/clustring_Umap.png", 
+  filename = "path.../clustring_Umap.png", 
   plot = clustring_Umap,           # The plot object
   width = 10,              # Width in inches
   height = 8,              # Height in inches
@@ -253,7 +249,7 @@ Heat_matrix
 ##### 4.1 Peaks calling
 
 project3 <- addGroupCoverages(ArchRProj = project2, groupBy = "Clusters")
-PeakCallspath <- ("/home/leaj00001/Desktop/single_cell/data/PeakCalls")
+PeakCallspath <- ("path.../data/PeakCalls")
 
 projHemeTmp <- addReproduciblePeakSet(
     ArchRProj = project3, 
@@ -408,7 +404,7 @@ library(patchwork)
 
 combined_plot <- wrap_plots(plot_First5_MG, ncol = 2) # Combine plots into a grid
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/plot_First5_MG_combined.png", 
+  filename = "path.../plot_First5_MG_combined.png", 
   plot = combined_plot,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -428,7 +424,7 @@ MAGIC_plot <- plotEmbedding(
 
 MAGIC_plot <- wrap_plots(MAGIC_plot, ncol = 3) # Combine plots into a grid
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/MAGIC_plot.png", 
+  filename = "path.../MAGIC_plot.png", 
   plot = MAGIC_plot,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -478,7 +474,7 @@ motifs_plot <- plotEmbedding(
 
 motifs_plot <- wrap_plots(motifs_plot, ncol = 2) # Combine plots into a grid
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/motifs_plot.png", 
+  filename = "path.../motifs_plot.png", 
   plot = motifs_plot,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -494,7 +490,7 @@ p_distribution <- plotGroups(ArchRProj = project6,
 
 p_distribution_plot <- wrap_plots(p_distribution, ncol = 2) # Combine plots into a grid
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/p_distribution_plot.png", 
+  filename = "path.../p_distribution_plot.png", 
   plot = p_distribution_plot,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -547,7 +543,7 @@ p2 <- plotEmbedding(
 )
 p1c <- wrap_plots(p1, ncol = 3) # Combine plots into a grid
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/p1.png", 
+  filename = "path.../p1.png", 
   plot = p1c,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -556,7 +552,7 @@ ggsave(
 
 p2c <- wrap_plots(p2, ncol = 3) # Combine plots into a grid
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/p2.png", 
+  filename = "path.../p2.png", 
   plot = p2c,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -632,7 +628,7 @@ Mono_T_mrkertest <- getMarkerFeatures(
 
 MA <- markerPlot(seMarker = Mono_T_mrkertest, name = "GluN2", cutOff = "FDR <= 0.1 & Log2FC >= 1", plotAs = "MA")
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/MA.png", 
+  filename = "path.../MA.png", 
   plot = MA,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -641,7 +637,7 @@ ggsave(
 
 Vol <- markerPlot(seMarker = Mono_T_mrkertest, name = "GluN2", cutOff = "FDR <= 0.1 & Log2FC >= 1", plotAs = "Volcano")
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/Vol.png", 
+  filename = "path.../Vol.png", 
   plot = Vol,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -675,7 +671,7 @@ gg_motifsup <- ggplot(df, aes(rank, mlog10Padj, color = mlog10Padj)) +
   scale_color_gradientn(colors = paletteContinuous(set = "comet"))
 
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/gg_motifsup.png", 
+  filename = "path.../gg_motifsup.png", 
   plot = gg_motifsup,
   width = 20,  # Adjust dimensions as needed
   height = 16,
@@ -711,7 +707,7 @@ gg_motifsDo <- ggplot(dfDo, aes(rank, mlog10Padj, color = mlog10Padj)) +
   scale_color_gradientn(colors = paletteContinuous(set = "comet"))
 
 ggsave(
-  filename = "/home/leaj00001/Desktop/single_cell/gg_motifsDo.png", 
+  filename = "path.../gg_motifsDo.png", 
   plot = gg_motifsDo,
   width = 20,  # Adjust dimensions as needed
   height = 16,
